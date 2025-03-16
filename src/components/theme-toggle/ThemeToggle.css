@@ -1,0 +1,7 @@
+.class-toggle {
+  font-size: xx-large;
+  color: var(--primary-color);
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}

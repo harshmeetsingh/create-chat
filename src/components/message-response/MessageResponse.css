@@ -1,0 +1,12 @@
+.bot-item-container {
+  display: flex;
+  gap: 16px;
+}
+.bot-item {
+  width: calc(50% - 8px);
+  border-radius: 16px;
+}
+.bot-type-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}

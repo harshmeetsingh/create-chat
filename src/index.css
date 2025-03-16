@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #fcfbfc;
+  --secondary-color: #307391;
+  --tertiary-color: #f2b7b9;
+  --background: #223f4c;
+}
+
+[data-theme="light"] {
+  --primary-color: #223f4c;
+  --secondary-color: #a5d4e5;
+  --tertiary-color: #f2b7b9;
+  --background: #fcfbfc;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}

@@ -1,0 +1,50 @@
+.image-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.response-image-container {
+  height: 400px;
+  border-radius: 16px;
+  background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 1s infinite linear;
+}
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+.response-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: opacity 500ms ease-in-out;
+}
+
+.response-image-placeholder {
+  width: 400px;
+  height: 400px;
+  border-radius: 16px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.response-image-loading {
+  opacity: 0;
+}
+
+.response-image-loaded {
+  opacity: 1;
+}
+.image-metadata {
+  margin-bottom: 8px;
+  font-weight: 600;
+}

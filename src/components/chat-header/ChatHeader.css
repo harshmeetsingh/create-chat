@@ -1,0 +1,9 @@
+.chat-header {
+  color: var(--primary-color);
+}
+
+.chat-header-prompt-count {
+  color: var(--primary-color);
+  flex: 1;
+  text-align: right;
+}
