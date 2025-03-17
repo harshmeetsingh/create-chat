@@ -12,9 +12,10 @@ export async function getImgResponseBotMsg(
   const models = Object.values(TEXT_TO_IMAGE_MODELS);
 
   // Create an array of promises for parallel execution
-  const imagePromises = models.map((model) =>
-    generateImageCB(inputMessage, model)
-  );
+  const imagePromises = models.map((model) => {
+    const modelText = model.split("-RP")[0];
+    return generateImageCB(inputMessage, modelText);
+  });
 
   const generatedUrls = await Promise.all(imagePromises);
 

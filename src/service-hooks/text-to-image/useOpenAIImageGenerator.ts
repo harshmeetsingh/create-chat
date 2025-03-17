@@ -2,7 +2,10 @@ import { useState } from "react";
 import { OpenAI } from "openai";
 import { API_KEY } from "../../utils/apiKeyUtils";
 
-const openai = new OpenAI({ apiKey: API_KEY, dangerouslyAllowBrowser: true });
+const openai = new OpenAI({
+  apiKey: API_KEY,
+  dangerouslyAllowBrowser: true,
+});
 
 export function useOpenAIImageGenerator() {
   const [isLoading, setIsLoading] = useState(false);

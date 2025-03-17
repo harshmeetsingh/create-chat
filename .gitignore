@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 src/utils/apiKeyUtils
+.vercel
+src/utils/apiKeyUtils.ts

@@ -1,4 +1,3 @@
-import { TEXT_TO_IMAGE_MODELS } from "../../constants";
 import { SuccessAnimation } from "../success-animation/SuccessAnimation";
 import "./ChatMetaData.css";
 

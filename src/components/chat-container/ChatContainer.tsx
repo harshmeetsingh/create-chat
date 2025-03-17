@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import { DESCRIPTION_LOADING_TEXT, IMG_LOADING_TEXT } from "../../constants";
 import { Message } from "../../types/chat.types";
 import { ImageResponses } from "../image-response/ImageResponses";

@@ -1,6 +1,5 @@
 import React, {
   useState,
-  FormEvent,
   ChangeEvent,
   useEffect,
   useRef,
@@ -8,7 +7,11 @@ import React, {
 } from "react";
 import "./ChatApp.css";
 import { useOpenAIImageGenerator } from "./service-hooks/text-to-image/useOpenAIImageGenerator";
-import { CHAT_TITLE, IMAGE_TO_TEXT_MODELS } from "./constants";
+import {
+  CHAT_TITLE,
+  IMAGE_TO_TEXT_MODELS,
+  TEXT_TO_IMAGE_MODELS,
+} from "./constants";
 import { useOpenAIImageToText } from "./service-hooks/image-to-text/useOpenAIImageToTextGenerator";
 import { ChatHeader } from "./components/chat-header/ChatHeader";
 import { ChatInput } from "./components/chat-input/ChatInput";
@@ -22,12 +25,6 @@ import {
   getTextResponsesBotMsg,
 } from "./utils/actionUtils";
 import { ErrorBanner } from "./components/error-banner/ErrorBanner";
-import { text } from "stream/consumers";
-
-interface ChatError {
-  message: string;
-  code: string;
-}
 
 const ChatApp: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -152,16 +149,14 @@ const ChatApp: React.FC = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (imgError) {
-      setResponseError(imgError || "");
+    if (imgError || textError) {
+      setResponseError("Something Went Wrong");
       setImageRendering(false);
-    } else {
-      setResponseError(textError || "");
     }
   }, [imgError, textError]);
 
   useEffect(() => {
-    if (completion === 2) {
+    if (completion === Object.values(TEXT_TO_IMAGE_MODELS).length) {
       setMessages((messages) => {
         let lastMessage = { ...messages[messages.length - 1] };
         lastMessage.metaData = {
@@ -189,6 +184,9 @@ const ChatApp: React.FC = () => {
             setMessages([]);
             setPromptCounter(0);
             setGenerateTextForImage(false);
+            setImageRendering(false);
+            setInputMessage("");
+            setCompletion(0);
           }}
         />
       )}

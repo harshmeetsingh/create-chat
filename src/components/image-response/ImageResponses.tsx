@@ -46,7 +46,7 @@ export const ImageResponses = ({
   };
 
   useEffect(() => {
-    if (Object.keys(renderComplete).length === 2) {
+    if (Object.keys(renderComplete).length === 3) {
       completeImageRender();
     }
   }, [renderComplete]);
